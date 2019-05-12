@@ -8,6 +8,52 @@
     <div class="row">
         <div class="col-md-12">
           <img class="img-responsive" src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/>
+          <h2>Spring Petclinic</h2>  
+          <p>PetClinic demonstrates the use of a Spring Boot with Spring MVC and Spring Data. The PetClinic has an old and varied history dating right back to the beginning of the Spring Framework. It started life as a demonstration of nearly all the common things that you could do with Spring, back when it was possible to conceive of such a demonstration. These days it is a very small slice of what you could achieve, but the community has a soft spot for it, so it's nice to see it still going after all this time, so we hope you enjoy it too.</p>
+
+		  <h3>Use Cases</h3>
+		  <ul>
+			<li>View a list of veterinarians and their specialties</li>
+			<li>View information pertaining to a pet owner</li>
+			<li>Update the information pertaining to a pet owner</li>
+			<li>Add a new pet owner to the system</li>
+			<li>View information pertaining to a pet</li>
+			<li>Update the information pertaining to a pet</li>
+			<li>Add a new pet to the system</li>
+			<li>View information pertaining to a pet's visitation history</li>
+			<li>Add information pertaining to a visit to the pet's visitation history</li>
+			<li>Exposing 15 endpoint(s) beneath base path '/manage'</li>
+		  </ul>
+		  <h3>Logical Views & Implemented Use Cases</h3>
+		  <ul>
+			<li>welcome is the "home" screen. It provides links to display a list of all vets, find an owner, or view documentation.</li>
+			<li>vets displays all vets and their specialties.</li>
+			<li>findOwners is used to find owners by last name.</li>
+			<li>findOwnersRedirect redirects to findOwner.</li>
+			<li>selectOwner allows user to select from a list of multiple owners with the same last name.</li>
+			<li>owner displays a owner's data and a list of the owner's pets and their data.</li>
+			<li>ownerRedirect redirects to owner.</li>
+			<li>owner supports AddOwnerForm and EditOwnerForm</li>
+			<li>pet supports AddPetForm and web.EditPetForm</li>
+			<li>visit supports AddVisitForm</li>
+			<li>dataAccessFailure displays a stacktrace</li>
+			</ul>
+		  <h3>Java Server Pages</h3>
+		  <ul>
+			<li>index.jsp redirects to the "welcome" page.</li>
+			<li>includes.jsp is statically included in all JSP's used in the application. It specifies the taglibs that are in use.</li>
+			<li>header.jsp and footer.jsp display info common to virtually all pages. Spring also supplies support for the integration of Tiles (included in Struts) but this is not used in PetClinic.</li>
+			<li>dataAccessFailure.jsp is the error page configured via SimpleMappingExceptionResolver, which displays a stack trace and normally wouldn't be used in a production version of an application. It can be seen in action by entering a URL of "editOwner.do" or "editPet.do" with an invalid request parameter, for example: /petclinic/owner.do?ownerId=-1. The handlers for these URLs normally expect to see a respective "ownerId" or "petId" request parameter corresponding to an Owner or Pet in the database. Thus, these handlers will throw a DataAccessException when such a request parameter is provided which references a non-existing entity.</li>
+			<li>uncaughtException.jsp is the web.xml configured "error-page". It displays a stack trace and normally wouldn't be used in a production version of an application. It can be seen in action by entering a URL of "editOwner.do" or "editPet.do" without a valid request parameter, for example: /petclinic/owner.do. The handlers for these URLs normally expect to see a respective "ownerId" or "petId" request parameter and throw a ServletException when such a request parameter is not found.</li>
+			<li>welcome.jsp implements welcome.</li>
+			<li>vets.jsp implements vets.</li>
+			<li>findOwners.jsp implements findOwners.</li>
+			<li>owners.jsp implements selectOwner.</li>
+			<li>owner.jsp implements owner.</li>
+			<li>ownerForm.jsp implements ownerForm.</li>
+			<li>petForm.jsp implements petForm.</li>
+			<li>visitForm.jsp implements visitForm.</li>
+		  </ul>
         </div>
     </div>
 

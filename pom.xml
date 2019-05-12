@@ -6,6 +6,7 @@
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic</artifactId>
   <version>2.1.0.BUILD-SNAPSHOT</version>
+<!--  <packaging>war</packaging> -->
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -33,6 +34,11 @@
 
   <dependencies>
     <!-- Spring and Spring Boot dependencies -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+<!--      <scope>provided</scope> -->
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
@@ -69,6 +75,11 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>12.2.0.1</version>
     </dependency>
 
     <!-- caching -->
@@ -112,6 +123,39 @@
 
   <build>
     <plugins>
+<!--    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <configuration>
+         <failOnMissingWebXml>false</failOnMissingWebXml>
+         <archive>
+            <manifest>
+               <addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+            </manifest>
+         </archive>
+      </configuration>
+      </plugin> -->
+      <plugin>  
+        <groupId>com.google.code.maven-replacer-plugin</groupId>  
+        <artifactId>maven-replacer-plugin</artifactId>  
+        <version>1.4.1</version>  
+        <executions>  
+          <execution>  
+           <phase>prepare-package</phase>  
+           <goals>  
+            <goal>replace</goal>  
+           </goals>  
+         </execution>  
+        </executions>  
+        <configuration>  
+         <includes>
+          <include>target/classes/templates/fragments/layout.html</include>  
+         </includes>  
+         <regex>false</regex>  
+         <token>PROJECT_VERSION</token>  
+         <value>${project.version}</value>  
+        </configuration>  
+      </plugin>  
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
