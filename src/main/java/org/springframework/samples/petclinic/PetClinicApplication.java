@@ -28,8 +28,8 @@ import org.springframework.web.WebApplicationInitializer;
  *
  */
 @SpringBootApplication
-/** public class PetClinicApplication extends SpringBootServletInitializer implements WebApplicationInitializer { **/
-public class PetClinicApplication {
+public class PetClinicApplication extends SpringBootServletInitializer implements WebApplicationInitializer {
+/** public class PetClinicApplication { **/
     public static void main(String[] args) {
         SpringApplication.run(PetClinicApplication.class, args);
     }

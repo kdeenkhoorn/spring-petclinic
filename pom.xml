@@ -6,7 +6,7 @@
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic</artifactId>
   <version>2.1.0.BUILD-SNAPSHOT</version>
-<!--  <packaging>war</packaging> -->
+  <packaging>war</packaging>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -37,7 +37,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-tomcat</artifactId>
-<!--      <scope>provided</scope> -->
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -123,7 +123,7 @@
 
   <build>
     <plugins>
-<!--    <plugin>
+    <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-war-plugin</artifactId>
       <configuration>
@@ -134,7 +134,7 @@
             </manifest>
          </archive>
       </configuration>
-      </plugin> -->
+      </plugin>
       <plugin>  
         <groupId>com.google.code.maven-replacer-plugin</groupId>  
         <artifactId>maven-replacer-plugin</artifactId>  
